@@ -38,3 +38,17 @@ jobs:
         working-directory: ${{github.workspace}}/build
         shell: bash
         run: cmake --build . --config $BUILD_TYPE
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
+        with:
+          name: ${{ matrix.kind }}
+          path: ${{github.workspace}}/build/libopus.a
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        if: matrix.os == 'windows-latest'
+        with:
+          name: ${{ matrix.kind }}
+          path: ${{github.workspace}}/build/${{env.BUILD_TYPE}}/opus.lib
