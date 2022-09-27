@@ -456,7 +456,7 @@ if(NOT OPUS_DISABLE_INTRINSICS)
     endif()
   endif()
 
-  if(CMAKE_SYSTEM_PROCESSOR MATCHES "(arm|aarch64)")
+  if(CMAKE_SYSTEM_PROCESSOR MATCHES "(armv7-a|armv7)|armv7s|arm64|aarch64")
     add_sources_group(opus celt ${celt_sources_arm})
   endif()
 
