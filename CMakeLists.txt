@@ -41,12 +41,6 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15")
 set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64")
 endif()
 
-if(WIN32)
-set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
-set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
-endif()
-
 include(opus_config.cmake)
 include(opus_sources.cmake)
 include(GNUInstallDirs)
